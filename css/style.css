@@ -73,6 +73,26 @@ body {
     margin-right: 10px;
 }
 
+.icon-link {
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px solid #333;
+border-radius: 5px;
+width: 30px;
+height: 30px;
+text-decoration: none;
+color: #333;
+font-size: 15px;
+transition: .4s;
+transition-property: color background-color border;
+}
+
+.icon-link:hover {
+    background-color: #a0ce4e;
+    border: 1px solid #fff;
+    color: #fff;
+  }
 /*Стилизация MAIN*/
 
 .intro {
