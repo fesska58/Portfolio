@@ -1,36 +1,30 @@
-//const modal = document.getElementsByClassName("grid-card");
-const modalContainer = document.getElementsByClassName("modal-container")
-const btn = document.getElementById("close");
+let cards = document.querySelectorAll('.grid-card');
+let modal = document.querySelector('.modal-container');
+let btn = document.querySelector('.btn-close');
+let card = null;
+for (let i = 0; i < cards.length; i++) {
+    let card = cards[i];
 
+    card.addEventListener('click', function (e) {
+        modal.classList.add('show');
+    });
 
-modal.onclick = function () {
-    modalContainer.style.display = "block";
+    btn.addEventListener('click', function () {
+        modal.classList.remove('show');
+    });
 }
 
-btn.onclick = function () {
-    modalContainer.style.display = "none";
-}
 
-let div = document.getElementsByClassName('grid-card')[0];
+// modal.onclick = function () {
+//     modalContainer.style.display = "block";
+// }
 
-div.addEventListener('click', function (event) {
-    alert('Hi!');
-});
+// btn.onclick = function () {
+//     modalContainer.style.display = "none";
+// }
 
+// let div = document.getElementsByClassName('grid-card')[0];
 
-function app() {
-    let btn = document.getElementById('close');
-    let div = document.getElementById('grid-card');
-    let modal = document.getElementById('modal');
-
-
-    div.onclick = function () {
-        modal.style.visibility = 'visible';
-    }
-
-    btn.onclick = function () {
-        modal.style.visibility = 'hidden';
-    }
-}
-
-app();
+// div.addEventListener('click', function (event) {
+//     alert('Hi!');
+// });

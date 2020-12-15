@@ -70,7 +70,7 @@ body {
 }
 
 .top-icon li {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .icon-link {
@@ -88,11 +88,32 @@ transition: .4s;
 transition-property: color background-color border;
 }
 
+.icon-link-footer {
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px solid #aaa;
+border-radius: 5px;
+width: 30px;
+height: 30px;
+text-decoration: none;
+color: #aaa;
+font-size: 15px;
+transition: .4s;
+transition-property: color background-color border;
+}
+
 .icon-link:hover {
     background-color: #a0ce4e;
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     color: #fff;
   }
+
+.icon-link-footer:hover {
+    background-color: #a0ce4e;
+    border: 1px solid transparent;
+    color: #fff;
+}
 /*Стилизация MAIN*/
 
 .intro {
@@ -100,6 +121,37 @@ transition-property: color background-color border;
     justify-content: center;
     align-items: center;
     margin-bottom:  70px;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.square {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #a0ce4e;
+    border-radius: 5px 5px 5px 0;
+    transform: rotate(45deg);
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+.reverse-square {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #a0ce4e;
+    border-radius: 5px 0px 5px 5px;
+    transform: rotate(45deg);
+    margin-right: 2px;
+}
+
+.hr-line {
+    width: 35px;
+    border-bottom: 2px solid  #a0ce4e ;
 }
 
 .intro h3 {
@@ -171,10 +223,7 @@ transition-property: color background-color border;
 
 .grid-container {
     display: grid;
-    grid-template-areas: "grid-card grid-card grid-card"
-                        "grid-card grid-card grid-card";
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 20px;
 }
 
@@ -194,14 +243,24 @@ transition-property: color background-color border;
 }
 
 .card-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(img/card.jpg);
     width: 100%;
     height: 65%;
+    overflow: hidden;
+
 }
 
+.background-card {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card-img:hover .background-card{
+    opacity: 0.7;
+    transform: scale(1.2) rotate(5deg);
+    transition: transform .5s;
+}
+ 
 .card-img:hover .photo-link {
     opacity: 1;
     transform: translateY(0);
@@ -210,6 +269,8 @@ transition-property: color background-color border;
 
 .photo-link {
     position: absolute;
+    top: 30%;
+    left: 48%;
     width: 30px;
     opacity: 0;
     transform: translateY(20px);
@@ -275,7 +336,74 @@ transition-property: color background-color border;
 }
 
 /*  Адаптив  */
+@media screen and (max-width: 1220px) {
+    .section {
+      max-width: 940px;
+    }
+    .grid-card {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  @media screen and (max-width: 1010px) {
+    .section {
+      max-width: 745px;
+    }
 
+    .wrapper {
+        max-width: 745px;
+        margin: 0 auto;
+    }
+
+    .card {
+      width: 360px;
+      height: 360px;
+    }
+    .icon-menu {
+      display: none;
+    }
+    .top-nav {
+      display: none;
+    }
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 25px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .section {
+      width: 100%;
+    }
+
+    .wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .grid-card {
+      width: 100%;
+      height: 480px;
+      margin: 0 15px
+    }
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-gap: 25px;
+      margin: 0 15px
+    }
+    .header__logo {
+      width: 60px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .grid-card {
+      width: 100%;
+      height: 360px;
+    }
+  }
 /*   Модальное окно    */
 .modal-container {
     visibility: hidden;
@@ -285,12 +413,17 @@ transition-property: color background-color border;
     right: 0;
     bottom: 0;
     z-index: 100;
-    transform: translateY(0);
-    opacity: 1;
-    transition-property: opacity;
-    transition-duration: .3s;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: 0.3s;
 }
 
+.show {
+    visibility: visible;
+    opacity: 1;    
+    transform: translateY(0);
+}
 .modal-window {
     display:flex;
     background-color: black;
