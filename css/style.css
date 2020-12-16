@@ -234,6 +234,7 @@ transition-property: color background-color border;
     border-radius: 10px;
     overflow: hidden;
     color: #565656;
+    transition: 0.5s all;
 }
 
 .grid-card:hover {
@@ -530,4 +531,9 @@ transition-property: color background-color border;
     width: 100%;
     border-bottom: 1px solid #fff;
     padding: 0;
+}
+.anime {    
+    display: none;
+    transform: scale(0);
+    opacity: 0;
 }
